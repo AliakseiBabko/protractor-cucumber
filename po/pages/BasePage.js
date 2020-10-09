@@ -5,7 +5,6 @@ const Footer = require('../components/global/Footer');
 
 class BasePage {
         constructor() {
-
                 this.Header = new Header();
                 this.Footer = new Footer();
         };

@@ -3,24 +3,19 @@
 class Header{
 	constructor (){
 
-        this.Header = element(by.css("header#main-header"));
+        this.Header = element(by.css(".g-top"));
 
-        this.HeaderLogo = this.Header.element(by.css('.large'));
-        this.SolutionButton = this.Header.element(by.css('#mega-menu-item-176024'));
-        this.OurWorkButton = this.Header.element(by.css('#mega-menu-item-176030'));
-        this.AboutButton = this.Header.element(by.css('#mega-menu-item-176037'));
-        this.NewsButton = this.Header.element(by.css('#mega-menu-item-179671'));
-        this.ContactButton = this.Header.element(by.css('.cta-contact-us'));
-        this.CallUsNumber = this.Header.element(by.css('.phone-number'));
-        
-        this.LanguageBlock = this.Header.element(by.css('.langs-switcher'));
-        this.SelectedLanguage = this.LanguageBlock.element(by.css('#lang-selected'));
-        this.Languages = this.LanguageBlock.$$('#langs .lang');
+        this.NavigationPanel = this.Header.$('.b-main-navigation');    
+        this.CatalogButton = this.Header.NavigationPanel.$('li:nth-of-type(1)');
+        this.NewsButton = this.Header.NavigationPanel.$('.li:nth-of-type(2)');
+        this.AutomarketButton = this.Header.NavigationPanel.$('li:nth-of-type(3)');
+        this.HousesButton = this.Header.NavigationPanel.$('li:nth-of-type(4)');
+        this.ServicesButton = this.Header.NavigationPanel.$('li:nth-of-type(5)');
+        this.ForumButton = this.Header.NavigationPanel.$('li:nth-of-type(6)');
 
-        this.SolutionsDropdownItems = this.SolutionButton.$$('.mega-sub-menu .mega-menu-link');
-        this.OurWorkDropdownItems = this.OurWorkButton.$$('.mega-sub-menu .mega-menu-link');
-        this.AboutDropdownItems = this.AboutButton.$$('.mega-sub-menu .mega-menu-link');
-        this.NewsDropdownItems = this.NewsButton.$$('.mega-sub-menu .mega-menu-link');
+        this.NewsDropdownItems = this.Header.NavigationPanel.NewsButton.$$('.b-main-navigation__dropdown-title-link');
+        this.AutomarketDropdownItems = this.Header.NavigationPanel.AutomarketButton.$$('.mega-sub-menu .mega-menu-link');
+        this.HousesItems = this.Header.NavigationPanel.HousesButton.$$('.mega-sub-menu .mega-menu-link');
 	};
 }
 

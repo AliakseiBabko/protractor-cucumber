@@ -1,13 +1,12 @@
 'use strict';
 
-const HomePage = require('./pages/HomePage');
+const CatalogPage = require('./pages/CatalogPageTV');
 // const baseUrl = browser.baseUrl;
 
 class World {
 	constructor (){
-		this.HomePage = new HomePage();
-
-		this.HomeUrl = `^${browser.baseUrl}$`;
+		this.CatalogPageTV = new CatalogPageTV();
+		//this.CatalogUrl = `^${browser.baseUrl}$`;
 	}
 }
 

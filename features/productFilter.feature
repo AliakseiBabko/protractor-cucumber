@@ -1,5 +1,5 @@
 @smoke
-Feature: product filter
+Feature: When choosing a product group, user can see a proper set of the title, filters, and buttons
 
     @smoke
     Scenario: When on the catalog page for TVs, user see title Телевизоры in the grid's header as well as Каталои and Объявления buttons

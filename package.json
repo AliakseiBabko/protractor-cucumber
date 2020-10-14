@@ -23,6 +23,7 @@
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0",
     "eslint": "^3.19.0",
+    "html-dnd": "^1.2.1",
     "protractor-cucumber-framework": "^6.2.1"
   }
 }

@@ -11,12 +11,13 @@ const EC = protractor.ExpectedConditions;
 const world = require('../po/world');
 const { browser } = require('protractor');
 let MemoryObject = require('./memory');
+const dragAndDrop = require('html-dnd').code;
 
 Before('@smoke', async function() {
     await browser.manage().deleteAllCookies();
     browser.waitForAngularEnabled(false);
     browser.get(browser.baseUrl);
-    await browser.sleep(15000);
+    await browser.sleep(10000);
 });
 /*
 Given('Select Samsung in filter as producer', async function() {    
@@ -32,14 +33,23 @@ Given('Catalog page for TVs is loaded', async function() {
 When('I drag and drop image of the first item in the grid into the Search field', async function() {
     const target = world.CatalogPageTV.firstElementInGridIMG;
     const destination = world.CatalogPageTV.Header.searchField;
-    MemoryObject.setter('originalUrl', world.CatalogPageTV.firstElementInGridA.getAttribute('href'));
-    //const sleep = (milliseconds) => { return new Promise(resolve => setTimeout(resolve, milliseconds)); }
+    const originalUrl = await world.CatalogPageTV.firstElementInGridA.getAttribute('href');
+    MemoryObject.setter('originalUrl', originalUrl);    
     
-    await browser.actions().dragAndDrop(target, destination).perform();
-    /*
+    //1. HTML Drag and Drop Simulator
+    //await browser.executeScript(dragAndDrop, target, destination);
+    
+    //2. Protractor `dragAndDrop` convenience action    
+    //await browser.actions().dragAndDrop(target, destination).perform();
+    
+    //3. Step by step actions
+    //await browser.actions().mouseDown(target).mouseMove(destination).mouseUp().perform();
+    
+    //4. Separeted actions with a pause
+    const sleep = (milliseconds) => { return new Promise(resolve => setTimeout(resolve, milliseconds)); }
     await browser.actions().mouseDown(target).mouseMove(destination).perform();
     await sleep(3000);
-    await browser.actions().mouseUp().perform();*/
+    await browser.actions().mouseUp().perform();
 });
 
 Then("Item's url should be copied", async function() {
@@ -61,7 +71,7 @@ Then("There should be the following buttons in the grid's header:", async functi
     const receivedData = datatable.raw();
     for (let i = 0; i < receivedData.length; i++) {
         let current = await element(by.xpath(`//div[#'schema-segments']//span[@innertext='${receivedData[i]}']`));
-        await EC.visibilityOf(current);        
+        await EC.visibilityOf(current);
     }    
 })
 

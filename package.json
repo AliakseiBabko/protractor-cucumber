@@ -1,7 +1,13 @@
 {
   "name": "exadel_cucumber_protractor_framework",
   "version": "0.0.1",
-  "description": "",
+  "description": "Homework for Exadel cources on Automation testing (Node.js)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kirillmolotil/protractor-cucumber"
+  },
+  "author": "Aliaksei Babko",
   "scripts": {
     "update": "webdriver-manager update",
     "e2e": "protractor protractor.config.js",
@@ -10,13 +16,13 @@
   "dependencies": {
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "cucumber": "4.1.0",
     "protractor": "^7.0.0",
-    "protractor-cucumber-framework": "^4.2.0",
     "yargs": "^16.0.3"
   },
   "devDependencies": {
+    "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0",
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "protractor-cucumber-framework": "^6.2.1"
   }
 }

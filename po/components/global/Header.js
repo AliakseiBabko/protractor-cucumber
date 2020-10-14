@@ -3,11 +3,12 @@
 class Header{
 	constructor (){
 
-        this.Header = element(by.css(".g-top"));
+        this.Header = element(by.css('.g-top'));
 
-        this.NavigationPanel = this.Header.$('.b-main-navigation');    
+        this.NavigationPanel = this.Header.element(by.css('.b-main-navigation'));
+        /*  
         this.CatalogButton = this.Header.NavigationPanel.$('li:nth-of-type(1)');
-        this.NewsButton = this.Header.NavigationPanel.$('.li:nth-of-type(2)');
+        this.NewsButton = this.Header.NavigationPanel.$('li:nth-of-type(2)');
         this.AutomarketButton = this.Header.NavigationPanel.$('li:nth-of-type(3)');
         this.HousesButton = this.Header.NavigationPanel.$('li:nth-of-type(4)');
         this.ServicesButton = this.Header.NavigationPanel.$('li:nth-of-type(5)');
@@ -16,6 +17,9 @@ class Header{
         this.NewsDropdownItems = this.Header.NavigationPanel.NewsButton.$$('.b-main-navigation__dropdown-title-link');
         this.AutomarketDropdownItems = this.Header.NavigationPanel.AutomarketButton.$$('.mega-sub-menu .mega-menu-link');
         this.HousesItems = this.Header.NavigationPanel.HousesButton.$$('.mega-sub-menu .mega-menu-link');
+*/
+        this.searchField = $('input[name="query"]');
+        this.searchFieldClose = $(".search__close");
 	};
 }
 

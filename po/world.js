@@ -1,6 +1,6 @@
 'use strict';
 
-const CatalogPage = require('./pages/CatalogPageTV');
+const CatalogPageTV = require('./pages/CatalogPageTV');
 // const baseUrl = browser.baseUrl;
 
 class World {

@@ -12,13 +12,23 @@ exports.config = {
         maxInstances: 2
     },
 
-    specs: [
-        './features/**.feature'
-    ],
+    specs: ['./features/**.feature'],
+    
     onPrepare: function () {
         browser.driver.manage().window().maximize();
     },
+    beforeLaunch: function () {
+        const dir = path.resolve('./output/');
+        console.log("Cleaning 'output' folder.");
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        } else {
+            fs.readdirSync(dir).forEach(file => fs.unlinkSync(path.resolve(dir + "/" + file)));
+        }
+    },
+
     SELENIUM_PROMISE_MANAGER: false,
+
     cucumberOpts: {
         require: path.resolve('./steps/**.js'),
         format: ['json:output/cucumber.json'],
